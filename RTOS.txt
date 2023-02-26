@@ -1,0 +1,25 @@
+#include <Arduino_FreeRTOS.h>
+
+void task1(void *pvParameters) {
+  // Task 1 code
+}
+
+void task2(void *pvParameters) {
+  // Task 2 code
+}
+
+void setup() {
+  // Create task 1 with higher priority
+  xTaskCreate(task1, "Task 1", 128, NULL, 2, NULL);
+
+  // Create task 2 with lower priority
+  xTaskCreate(task2, "Task 2", 128, NULL, 1, NULL);
+
+  // Start scheduler
+  vTaskStartScheduler();
+}
+
+void loop() {
+  // This function is not used in an RTOS application
+}
+
